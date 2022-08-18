@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script>
+    document.getElementById('mensajeEncriptado').style.display = 'none';
+    document.getElementById('mensajeDesencriptado').style.display = 'none';
+
+    function myFunction() {
+        var x = document.getElementById("mensajeEncriptado");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    } 
+
+    function encriptar() {
+        var texto = document.querySelector("#encriptar").value;
+        var letras = texto.replace('e', "enter").replace('i', "imes").replace('a', "ai").replace('o', "ober").replace('u', "ufat");
+
+        document.querySelector(".encriptado").value = letras;
+        document.querySelector("#encriptar").value;
+
+        if (texto == 0){
+            document.getElementById('mensajeEncriptado').style.visibility = "hidden";
+            document.getElementById('mensaje').style.visibility = "visibility";
+            document.getElementById('munecoVector').style.visibility = "visibility";
+        }
+        if(texto == 1){
+            document.getElementById('mensaje').style.visibility = "hidden";
+            document.getElementById('munecoVector').style.visibility = "hidden";
+            document.getElementById('mensajeEncriptado').style.visibility = "visibility";
+        }
+
+    }
+
+    function desencriptar (){ 
+        var texto = document.querySelector("#encriptar").value; 
+        var letras = texto.replace('enter', "e").replace('imes', "i").replace('ai', "a").replace('ober', "o").replace('ufat', "u"); 
+        document.querySelector(".encriptado").value = letras; 
+        document.querySelector("#encriptar").value;
+
+        if (texto == 0){
+            document.getElementById('mensajeEncriptado').style.visibility = "hidden";
+            document.getElementById('mensaje').style.visibility = "visibility";
+            document.getElementById('munecoVector').style.visibility = "visibility";
+        }
+        if(texto == 1){
+            document.getElementById('mensaje').style.visibility = "hidden";
+            document.getElementById('munecoVector').style.visibility = "hidden";
+            document.getElementById('mensajeEncriptado').style.visibility = "visibility";
+        }
+        
+    }
+
+    function copiar() {
+    let copiarTexto = document.querySelector(".encriptado");
+    copiarTexto.select();
+    document.execCommand("copy");
+    }
+
+    document.querySelector(".botoncito").addEventListener("click", copy);
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="Vector.png" alt="Alura latam">
+        </div>
+
+        <div class="textoEncriptado">
+            <div class="munecoVector">
+                <img id="munecoVector" src="Muneco.png" alt="Muneco">
+            </div>
+            <div class="mensaje" id="mensaje">
+                <!-- <input type="Text" name="textocambiado" size="40"placeholder=""> -->
+                <p id="mensaje">Ningún mensaje fue encontrado</p>
+                <p id="mensaje2">Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <section class="mensajeEncriptado" id="mensajeEncriptado">
+                <h1>Texto:</h1>
+                <textarea class="encriptado" type="text" id="msg"></textarea>
+                <button class="botoncito" type="button" value="copiar" id="btn-copy" onclick="copiar()">
+                    <p id="textoBoton3">Copiar</p>
+                </button>
+            </section>
+        </div>
+
+        <div class="texto1">
+            <textarea name="encriptar" id="encriptar" cols="60" rows="5" placeholder="Ingrese su texto aqui"></textarea>
+            <!-- <input type="text" placeholder="Ingrese su texto aq"> -->
+        </div>
+
+        <!-- Alerta -->
+
+        <div class="alerta">
+            <div class="exclamacion">
+                <img src="Vector2.png" alt="alerta">
+
+                
+            </div>
+            <div class="textoAlerta">
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
+        </div>
+
+        <div class="botones">
+            
+            <button id="boton1" onclick="encriptar()">
+                <p class="textoBoton1">Encriptar</p>
+            </button>
+            <button id="boton2" onclick="desencriptar()">
+                <p class="textoBoton2">Desencriptar</p>
+            </button>
+        </div>
+    </div>
+    
+
+</body>
+</html>
